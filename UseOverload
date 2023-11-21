@@ -21,7 +21,36 @@ v1 = Vector([1, 3, 4, 5])
 v2 = Vector([7, 9, 0, 8])
 print(v1 * v2)
 
+>>> Vector(7 27 0 40)
+
+
+
 #using an overload of multiplication by a number:
+
+class Int:
+    def __init__(self, coord: int):
+        self.coord = coord
+class Vector:
+    def __init__(self, coord: list):
+        self.coord = coord
+    def __str__(self):
+        return f"Vector({' '.join(map(str, self.coord))})"
+    def __mul__(self, other):
+        if type(other) is int:
+            new_coord = self.coord.copy()
+            for i, item in enumerate(new_coord):
+                new_coord[i] *= other
+            return Vector(new_coord)
+v1 = Vector([3, 4, 5, 6])
+v2 = 78
+print(v1 * v2)
+
+>>> Vector(234 312 390 468)
+
+
+
+#using an overload of division by a number:
+
 
 
  
