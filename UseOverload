@@ -51,6 +51,26 @@ print(v1 * v2)
 
 #using an overload of division by a number:
 
+class Vector:
+    def __init__(self, coord: list):
+        self.coord = coord
 
+    def __len__(self):
+        return len(self.coord)
+
+    def __str__(self):
+        return f"Vector({' '.join(map(str, self.coord))})"
+
+    def __mul__(self, other, one=1):
+        if type(other) is int:
+            new_coord = self.coord.copy()
+            for i, item in enumerate(new_coord):
+                new_coord[i] *= (one/other)
+            return Vector(new_coord)
+v1 = Vector([1, 3, 4, 5])
+v2 = 8
+print(v1 * v2)
+
+>>> Vector(0.125 0.375 0.5 0.625)
 
  
