@@ -73,4 +73,24 @@ print(v1 * v2)
 
 >>> Vector(0.125 0.375 0.5 0.625)
 
+#Finding angle:
+
+import numpy as np
+from numpy.linalg import norm
+class Vector:
+    def __init__(self, coord: list):
+        self.coord = coord
+
+    def Find_angle(self, other):
+        if isinstance(other, Vector):
+            skal_multy = np.dot(self.coord, other.coord)
+            value_v1 = norm(self.coord)
+            value_v2 = norm(other.coord)
+            angle = np.arccos(skal_multy/(value_v1 * value_v2))
+            return round(angle, 4)
+v1 = Vector([0.5, 3, 4, 7])
+v2 = Vector([4, 5, 7, 8])
+print(Vector.Find_angle(v1, v2))
+
+>>> 0.3347
  
