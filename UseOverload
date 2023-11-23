@@ -93,4 +93,24 @@ v2 = Vector([4, 5, 7, 8])
 print(Vector.Find_angle(v1, v2))
 
 >>> 0.3347
+
+
+v1 = [int(x) for x in input("enter three values:\n").split(', ')]
+print("vector 1:", v1)
+v2 = [int(y) for y in input("enter three values:\n").split(', ')]
+print("vector 2:", v2)
+skal_value = (v1[0]*v2[0])+(v1[1]*v2[1])+(v1[2]*v2[2])
+abs_v1 = (v1[0] + v1[1] + v1[2])**0.5
+abs_v2 = (v2[0] + v2[1] + v2[2])**0.5
+answer = skal_value / (abs_v1 * abs_v2)
+print(answer)
+
+>>> enter three values:
+7, 8, 9
+vector 1: [7, 8, 9]
+enter three values:
+5, 6, 4
+vector 2: [5, 6, 4]
+6.271850692667286
+
  
