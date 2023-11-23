@@ -19,4 +19,5 @@ class Vector:
 
 v1 = Vector([1, 2, 3, 4])
 v2 = Vector([7, 8, 9])
+v3 = 10
 print(v1 + v2)
