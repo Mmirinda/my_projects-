@@ -1,6 +1,6 @@
 DATABASE = [
     {
-        "phone_number": "+79114563843",
+        "phone_number": "+79...",
         "name": "Юрий",
         "second_name": "Шаманов",
         "balance": 100,
