@@ -1,17 +1,7 @@
-class Vector:
-    def __init__(self, coord: list[int]):
-        self.coord = coord
+import controllers
 
-    def __len__(self):
-        return len(self.coord)
 
-    def __str__(self):
-        return f"Vector({', '.join(map(str, self.coord))})"
+contact_controller = controllers.ContactsController()
+contact_controller.get_contact_by_phone_number("+79114563843")
 
-    def __add__(self, other):
-        if isinstance(other, Vector):
-            new_coord = self.coord.copy()
-            for i, item in enumerate(other.coord):
-                new_coord[i] += item
-            return Vector(new_coord)
-        raise TypeError(f"Vector unsupported + with {other.__class__.__name__}")
+contact_controller.get_contact(vasia=123)
