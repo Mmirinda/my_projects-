@@ -1,0 +1,56 @@
+from data_create import name_data, surname_data, phone_data, addres_data
+
+def input_data():
+    name = name_data()
+    surname = surname_data()
+    phone = phone_data()
+    addres = addres_data()
+    var = int(input(f'\nВ каком формате будем сохранять ваши данные? \n\n'
+                    f'1 вариант: \n'
+                    f'{name}\n{surname}\n{phone}\n{addres}\n'
+                    f'\n2 вариант: \n'
+                    f'{name} - {surname} - {phone} - {addres}\n'))
+    while var != 1 and var != 2:
+        print('прекратите поясничать. я все таки вас обслуживаю.')
+        var = int(input(f'В каком формате будем сохранять ваши данные? \n\n'
+                    f'1 вариант: \n'
+                    f'{name}\n{surname}\n{phone}\n{addres}\n\n'
+                    f'\n2 вариант: \n'
+                    f'{name} - {surname} - {phone} - {addres}\n\n'))
+    if var == 1:
+        with open('data_first_variant.csv', 'a', encoding='utf-8') as file:
+            file.write(f'{name}\n{surname}\n{phone}\n{addres}\n\n')
+    elif var == 2:
+        with open('data_second_variant.csv', 'a', encoding='utf-8') as file:
+            file.write(f'{name} - {surname} - {phone} - {addres}\n')
+
+def print_data():
+    print('Вывожу данные из первого файла: \n')
+    with open('data_first_variant.csv', 'r', encoding='utf-8') as file1:
+        list_of_file_1 = [x for x in file1]
+        row = 0
+        print(*list_of_file_1[:4])
+        row+=4
+        input_answer = input('Это Вы?\n')
+        while input_answer != 'да' and row!=len(list_of_file_1):
+            print(*list_of_file_1[row:row+4])
+            row+=4
+            input_answer = input('Это Вы?\n')
+        if input_answer == 'да':
+            return print('✔')
+        elif input_answer != 'да' and row == len(list_of_file_1):
+            print('Вывожу данные из второго файла: \n')
+            with open('data_second_variant.csv', 'r', encoding='utf-8') as file2:
+                list_of_file_2 = [x for x in file2]
+                columns = 0
+                print(list_of_file_2[columns])
+                columns+=1
+                input_ans = input('Это Вы? \n')
+                while input_ans != 'да' and columns!=len(list_of_file_2):
+                    print(list_of_file_2[columns])
+                    columns+=1
+                    input_ans = input('Это Вы? \n')
+                if input_ans == 'да':
+                    return print('✔')
+                elif input_data!='да' and columns==len(list_of_file_2):
+                    return print('Вас нет в списках.')
